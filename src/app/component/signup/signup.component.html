@@ -1,0 +1,96 @@
+<div class="hero overlay" style="background-image: url('assets/images/bg_3.jpg');">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-9 mx-auto text-center">
+          <h1 class="text-white">{{title}}</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+    <div class="site-section">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-6" style="margin-left: 20%;">
+              <!--declarer ID form // reactive form-->
+              <form [formGroup]="signupForm">
+                <div class="form-group">
+                  <!--declarer attribut-->
+                    <input type="text" class="form-control" placeholder="FirstName" formControlName="firstName">
+                  </div>
+                  <div *ngIf="
+                  signupForm.controls['firstName'].invalid && 
+                  (signupForm.controls['firstName'].touched ||
+                  signupForm.controls['firstName'].dirty)
+                  ">
+                  <div *ngIf="signupForm.controls['firstName'].errors?.['required']" class="red">
+                    FirstName is required
+                  </div>
+
+                  <div *ngIf="signupForm.controls['firstName'].errors?.['minlength']" class="red">
+                    FirstName must have at least 3 chars
+                  </div>
+
+                  </div>
+                  <div class="form-group">
+                    <input type="text" class="form-control" placeholder="LastName" formControlName="lastName">
+                  </div>
+                  <div *ngIf="
+                  signupForm.controls['lastName'].invalid && 
+                  (signupForm.controls['lastName'].touched ||
+                  signupForm.controls['lastName'].dirty)
+                  ">
+                  <div *ngIf="signupForm.controls['lastName'].errors?.['required']"  class="red">
+                    LastName is required
+                  </div>
+
+                  <div *ngIf="signupForm.controls['lastName'].errors?.['minlength']"  class="red">
+                    LastName must have at least 5 chars
+                  </div>
+
+                  </div>
+                <div class="form-group">
+                  <input type="email" class="form-control" placeholder="Email" formControlName="email">
+                </div>
+                <div *ngIf="
+                signupForm.controls['email'].invalid && 
+                (signupForm.controls['email'].touched ||
+                signupForm.controls['email'].dirty)
+                ">
+                <div *ngIf="signupForm.controls['email'].errors?.['required']"  class="red">
+                  email is required
+                </div>
+                <div *ngIf="signupForm.controls['email'].errors?.['email']"  class="red">
+                  respect format email
+                </div>
+                </div>
+                <div class="form-group">
+                  <input type="password" class="form-control" placeholder="Password" formControlName="pwd">
+                </div>    
+                <div *ngIf="
+                signupForm.controls['pwd'].invalid && 
+                (signupForm.controls['pwd'].touched ||
+                signupForm.controls['pwd'].dirty)
+                ">
+                <div *ngIf="signupForm.controls['pwd'].errors?.['pattern']"  class="red">
+                  respect format password
+                </div>
+                </div> 
+                <div class="form-group">
+                    <input type="number" class="form-control" placeholder="Tel" formControlName="tel" >
+                  </div>    
+                  <div class="form-group" style="visibility: hidden;">
+                    <input type="file" class="form-control" #filePicker (change)="onImageSelected($event)" >
+                  </div>   
+                  <div class="text-center mb-3">
+                    <button type="button" class="btn btn-success" (click)="filePicker.click()">Select your avatar</button>
+                    <img [src]="imagePreview" class="mt-4" width="300px" alt="">
+                  </div>
+                <div class="form-group text-center">
+                  <input type="submit" class="btn btn-primary py-3 px-5 " value="Signup" (click)="signup()">
+                </div>
+              </form>  
+            </div>
+            
+          </div>
+        </div>
+      </div>

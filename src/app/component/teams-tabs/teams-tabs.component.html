@@ -1,0 +1,43 @@
+<div class="col-lg-12">
+            
+    <div class="widget-neteamt-match ">
+      <table class="table custom-table" style="color: #fff;">
+        <thead>
+          <tr>
+        
+            <th>Name</th>
+            <th>Owner</th>
+            <th>fondution</th>
+            <th>Players</th>
+            <th>Actions</th>
+            
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let team of teamsTab">
+            <td>{{team.name}}</td>
+            <td>{{team.owner}}</td>
+            <td>{{team.fondation}}</td>
+            <td>
+              <span *ngFor="let player of team.playersId">
+                         {{player.name}} : {{player.position}}<br>
+              </span>
+            </td>
+            <td>
+              <input  type="submit" class="btn btn-info " value="Display" (click)="display(team._id)">
+              <input  type="submit" class="btn btn-warning " value="Edit" (click)="edit(team._id)">
+              <input  type="submit" class="btn btn-warning " value="delete" (click)="deleteTeam(team._id)">
+            </td>
+            
+            
+          </tr>
+       
+         
+          
+        
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+

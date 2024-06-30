@@ -1,0 +1,40 @@
+<div class="col-lg-12">
+            
+    <div class="widget-neplayert-match">
+      <table class="table custom-table" style="color: #fff;">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Position</th>
+            <th>number</th>
+            <th>Age</th>
+            <th>Team Name</th>
+            <th>Team Fondution</th> 
+            <th>Actions</th>
+            
+          </tr>
+        </thead>
+        <tbody >
+          <tr *ngFor="let player of playersTab">
+            <td>{{player.name}}</td>
+            <td>{{player.position}}</td>
+            <td>{{player.number}}</td>
+            <td>{{player.age}}</td>
+            <td>{{player.teamID.name}}</td> 
+            <td>{{player.teamID.fondation}}</td> 
+            <td>
+              <input  type="submit" class="btn btn-info " value="Display" (click)="display(player._id)">
+              <input  type="submit" class="btn btn-warning " value="Edit" (click)="edit(player._id)">
+              <input  type="submit" class="btn btn-danger " value="delete" (click)="deletePlayer(player._id)">             
+            </td>
+            
+          </tr>
+         
+       
+          
+        
+        </tbody>
+      </table>
+    </div>
+
+  </div>

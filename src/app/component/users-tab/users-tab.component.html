@@ -1,0 +1,41 @@
+<div class="col-lg-12">
+            
+    <div class="widget-neusert-match ">
+      <table class="table custom-table " style="color: #fff;">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>FirstName</th>
+            <th>LastName</th>
+            <th>Email</th>
+            
+            <th>Tel</th>
+            <th>Actions</th>
+            
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of usersTab">
+            <td>{{user.id}}</td>
+            <td>{{user.firstName}}</td>
+            <td>{{user.lastName}}</td>
+            <td>{{user.email}}</td>
+          
+            <td>{{user.tel}}</td>
+            <td>
+              <input  type="submit" class="btn btn-info " value="Display" (click)="display(user.id)">
+              <input  type="submit" class="btn btn-warning " value="Edit" (click)="edit(user.id)">
+              
+            </td>
+            
+            
+          </tr>
+       
+         
+          
+        
+        </tbody>
+      </table>
+    </div>
+
+  </div>

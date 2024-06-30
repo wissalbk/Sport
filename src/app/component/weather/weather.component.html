@@ -1,0 +1,40 @@
+<div class="hero overlay" style="background-image: url('assets/images/bg_3.jpg');">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-9 mx-auto text-center">
+          <h1 class="text-white">Weather</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<div class="site-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6" style="margin-left: 20%;">
+          <!--declarer ID form // reactive form-->
+          <form [formGroup]="weatherForm">
+           
+            <div class="form-group">
+                <input type="text" class="form-control"  placeholder="city" formControlName="city" >
+              </div>              
+                       
+            <div class="form-group text-center">
+              <input type="submit" class="btn btn-primary py-3 px-5 " value="Search" (click)="searchWeather()">
+            </div>
+          </form> 
+          <div class="text-center" style="font-size: 30px;">
+             <p>{{apiResult.description}}</p>
+             <p>{{apiResult.temp}}</p>
+             <p>{{apiResult.pressure}}</p>
+             <p>{{apiResult.humidity}}</p>
+             <p>{{apiResult.speed}}</p>
+             
+          </div> 
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
